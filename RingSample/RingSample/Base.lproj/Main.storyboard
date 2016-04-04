@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qq8-y7-Yst">
-                                <rect key="frame" x="267" y="498" width="67" height="30"/>
-                                <state key="normal" title="Complete"/>
+                                <rect key="frame" x="266" y="498" width="69" height="30"/>
+                                <state key="normal" title="Increment"/>
                                 <connections>
                                     <action selector="complete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tdf-uB-Zzb"/>
                                 </connections>
