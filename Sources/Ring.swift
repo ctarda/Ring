@@ -1,34 +1,45 @@
 import UIKit
 
 @IBDesignable public class Ring: UIView {
+    
+    private struct Constants {
+        static let defaultProgress: CGFloat = 0.2
+        static let defaultLineWidth: CGFloat = 4.0
+        static let defaultLineColor: UIColor = .redColor()
+        static let defaultFillColor: UIColor = .clearColor()
+        static let defaultBackgroundColor: UIColor = .whiteColor()
+        static let minProgress: CGFloat = 0
+        static let maxProgress: CGFloat = 1
+    }
+    
     let pathLayer = CAShapeLayer()
     
-    @IBInspectable public var progress: CGFloat = 0.2 {
+    @IBInspectable public var progress: CGFloat = Constants.defaultProgress {
         didSet {
             progress = normalize(progress)
             pathLayer.strokeEnd = progress
         }
     }
     
-    @IBInspectable public var lineWidth: CGFloat = 20.0 {
+    @IBInspectable public var lineWidth: CGFloat = Constants.defaultLineWidth {
         didSet {
             pathLayer.lineWidth = lineWidth
         }
     }
     
-    @IBInspectable public var lineColor: UIColor = .redColor() {
+    @IBInspectable public var lineColor: UIColor = Constants.defaultLineColor {
         didSet {
             pathLayer.strokeColor = lineColor.CGColor
         }
     }
     
-    @IBInspectable public var fillColor: UIColor = .clearColor() {
+    @IBInspectable public var fillColor: UIColor = Constants.defaultFillColor {
         didSet {
             pathLayer.fillColor = fillColor.CGColor
         }
     }    
     
-    @IBInspectable public var background: UIColor = .whiteColor() {
+    @IBInspectable public var background: UIColor = Constants.defaultBackgroundColor {
         didSet {
             backgroundColor = background
         }
@@ -36,10 +47,10 @@ import UIKit
     
     private func normalize(value: CGFloat) -> CGFloat {
         var returnValue = value
-        if value > 1 {
-            returnValue = 1
-        } else if value < 0 {
-            returnValue = 0
+        if value > Constants.maxProgress {
+            returnValue = Constants.maxProgress
+        } else if value < Constants.minProgress {
+            returnValue = Constants.minProgress
         }
         
         return returnValue
@@ -69,7 +80,7 @@ import UIKit
         layer.addSublayer(pathLayer)
         
         pathLayer.anchorPoint = CGPointMake(0.5, 0.5)
-        pathLayer.transform = CATransform3DRotate(pathLayer.transform, -1/2 * CGFloat(M_PI), 0.0, 0.0, 1.0);        
+        pathLayer.transform = CATransform3DRotate(pathLayer.transform, -0.5 * CGFloat(M_PI), 0.0, 0.0, 1.0);
     }
     
     override public func layoutSubviews() {
