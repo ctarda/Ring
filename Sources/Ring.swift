@@ -3,10 +3,10 @@ import UIKit
 @IBDesignable public class Ring: UIView {
     let pathLayer = CAShapeLayer()
     
-    
-    @IBInspectable public var initialProgress: CGFloat = 0.2 {
+    @IBInspectable public var progress: CGFloat = 0.2 {
         didSet {
-            progress = initialProgress
+            progress = normalize(progress)
+            pathLayer.strokeEnd = progress
         }
     }
     
@@ -31,16 +31,6 @@ import UIKit
     @IBInspectable public var background: UIColor = .whiteColor() {
         didSet {
             backgroundColor = background
-        }
-    }
-    
-    var progress: CGFloat {
-        get {
-            return pathLayer.strokeEnd
-        }
-        
-        set {
-            pathLayer.strokeEnd = normalize(newValue)
         }
     }
     
@@ -79,9 +69,7 @@ import UIKit
         layer.addSublayer(pathLayer)
         
         pathLayer.anchorPoint = CGPointMake(0.5, 0.5)
-        pathLayer.transform = CATransform3DRotate(pathLayer.transform, -1/2 * CGFloat(M_PI), 0.0, 0.0, 1.0);
-        
-        progress = initialProgress
+        pathLayer.transform = CATransform3DRotate(pathLayer.transform, -1/2 * CGFloat(M_PI), 0.0, 0.0, 1.0);        
     }
     
     override public func layoutSubviews() {
