@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Ring"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "UIView subclass that presents a Ring."
   s.description      = <<-DESC
 Ring is, well... a Ring. It can be used to mimic an activity ring, or a progress indicator.
