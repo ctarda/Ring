@@ -4,15 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>RingSample.xcscheme</key>
+		<key>Ring.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>RingDemo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>D8871F761CB26E9200BED24E</key>
+		<key>D88A16881CB3492700BE4D38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D88A16A31CB34A5E00BE4D38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
